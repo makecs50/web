@@ -1,0 +1,210 @@
+---
+layout: default
+---
+                <h1 id="project-1-books">Проект 1: Книги</h1>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Опубликовано</strong></td>
+      <td>Суббота, 14 апреля</td>
+    </tr>
+    <tr>
+      <td><strong>Конец</strong></td>
+      <td>Суббота, 5 мая 23:59</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="objectives">Цели</h2>
+
+<ul>
+  <li>Стать более уверенными пользователями Python'а.</li>
+  <li>Набраться опыта в работе с Flask.</li>
+  <li>Научиться использовать SQL, для взаимодействия с базами данных.</li>
+</ul>
+
+<h2 id="getting-help">Получение Помощи</h2>
+
+<p>Если вам понадобится помощь в работе над проектом, можете спокойно воспользоваться следующими ресурсами (их все ещё не так много ;D):</p>
+
+<ul>
+  <li>Группа в телеграмме, ссылку можно получить у TF.</li>
+</ul>
+
+<h2 id="overview">Описание</h2>
+
+<p>В данной проекте, вам нужно будет создать сайт с обзорами на различные книги. Пользователи смогут регистрироваться на вашем сайте, а также авторизовываться, используя свои учетные данные (логин и пароль). После авторизации, они должны иметь возможность искать книги, оставлять о них отзывы и видеть отзывы других пользователей.
+Вы также воспользуетесь сторонним API, предоставляемый сайтом Goodreads (тоже сайт книжных отзывов), таким образом получая доступ к рейтингам более обширной аудитории, которые вам нужно будет задействовать в своем проекте.
+И наконец, пользователи смогут программным путем запрашивать подробную информацию о книгах и об их отзывах, пользуясь вашим веб-сайтовским API.</p>
+
+<h2 id="getting-started">С чего начать</h2>
+
+<h3 id="github-classroom">GitHub Classroom (Виртуальный класс от Гитхаба)</h3>
+
+<p>Мы вновь воспользуемся сервисом GitHub Classroom, для раздачи и проверки проектов. Чтобы начать работу с Проектом 1, проделайте следующее:</p>
+
+<ol>
+  <li><a target="_blank" href="https://classroom.github.com/a/ZoA5yPyE">Нажав сюда</a> вы перейдете к странице GitHub Classroom, где вы сможете начать выполнение задания.</li>
+  <li>Нажмите на зеленую кнопку “Accept this assignment” (Принять задание). Таким образом вы создадите Github'овский репозиторий для вашего проекта. Имейте ввиду, что git'овский репозиторий - это всего лишь место, где будет храниться ваш код и благодаря которому вы сможете отслеживать вносимые вами изменения, которые, несомненно, со временем будут иметь место быть.</li>
+  <li>Нажмите на следующую за данным текстом ссылку “Your assignment has been created here” (Ваше задание было создано и находится здесь), которая перенаправит вас на страницу GitHub'овского репозитория, где и будет храниться ваш проект. GitHub'у понадобится всего лишь несколько секунд для того, чтобы закончить создание вашего репозитория.</li>
+  <li>В правом верхнем углу страницы репозитория нажмите на кнопку "Fork" (Ответвление/Развилка/Вилка), а затем (если вас попросят) кликните на ваш никнейм. Так вы создадите ответвление (Fork) вашего проектного репозитория, т.е. версию репозитория, которая будет принадлежать именно вашему GitHub аккаунту.</li>
+  <li>Теперь вы должны видеть новый заголовок GitHub репозитория, а именно <strong>username/project1-username</strong>, где <strong>username</strong> (никнейм) является вашим GitHub'овским никнеймом. Это будет репозиторий, куда вы будете отправлять (push) весь ваш код, в процессе разработки проекта. Работая над проектом, не пытайтесь публиковать (push) вашу работу напрямую в репозитории <strong>makeweb50/project1-username</strong>: всегда публикуйте (push) свой код в вашем репозитории <strong>username/project1-username</strong>.</li>
+</ol>
+
+<h3 id="postgresql">PostgreSQL</h3>
+
+<p>Для данного проекта вам понадобится настроить базу данных PostgreSQL, чтобы она работала с нашим приложением. Вы, конечно, можете локально развернуть на вашем компьютере базу данных PostgreSQL, но в данном проекте мы воспользуемся базой, предоставляемой сервисом <a target="_blank" href="https://www.heroku.com/">Heroku</a> (онлайн-хостинга).</p>
+
+<ol>
+  <li>Перейдите на сайт <a target="_blank" href="https://www.heroku.com/">https://www.heroku.com/</a> и создайте аккаунт, если вы, конечно, ранее не регистрировались.</li>
+  <li>В панели управления (Dashboard) Heroku, кликните на “New” (Новый) и выбирите “Create new app” (Создать новое приложение).</li>
+  <li>Дайте название своему приложению и нажмите на “Create app.”</li>
+  <li>Выберите страницу вашего приложение, под названием “Overview” (Обзор), кликните по кнопке “Configure Add-ons” (Настроить дополнения).</li>
+  <li>На данной странице найдите раздел “Add-ons”, далее введите в поиске “Heroku Postgres” и выберите его.</li>
+  <li>Выберите опцию (plan) “Hobby Dev - Free”, которая даст вам доступ к бесплатной базе данных PostgreSQL, имеющая возможность хранить до 10,000 строк/записей информации. Кликните
+“Provision.”</li>
+  <li>Теперь кликните по ссылке “Heroku Postgres :: Database”.</li>
+  <li>Теперь вы должны быть на странице, дающей общую информацию о вашей базе. Нажмите на “Settings” (Настройки), а потом на “View Credentials” (просмотреть данные учетной записи). Эта вся необходимая информация для того, чтобы вы могли авторизоваться в вашей базе данных. Вы можете получить доступ к базе данных с помощью <a target="_blank" href="https://adminer.cs50.net/">Adminer</a>, указав адрес сервера (значение “Host” на сайте heroku, страница с данными нашей учетной записи/Credentials), ваше имя пользователя ( “User”), ваш пароль и название базы данных. Вся эта информация может быть найдена на странице сайта Heroku, под названием Credentials.</li>
+</ol>
+
+<p>В качестве альтернативы, вы можете установить
+<a target="_blank" href="https://www.postgresql.org/download/">PostgreSQL</a> на свой компьютер, далее получая возможность выполнить в командной строке <code class="highlighter-rouge">psql URI</code>, где <code class="highlighter-rouge">URI</code> - это ссылка, которую мы берем со страницы сайта Heroku, страница с информацией о нашей учетной записи.</p>
+
+<h3 id="python-and-flask">Python и Flask</h3>
+
+<ol>
+  <li>В первую очередь, убедитесь что у вас установлен <a target="_blank" href="https://www.python.org/downloads/">Python</a>. На этом курсе мы будем использовать версию Python'а не меньше 3.6.</li>
+  <li>Вам также нужно будет установить <code class="highlighter-rouge">pip</code>. Если вы скачали Python с официального веб-сайта, тогда вполне вероятно, что у вас на компьютере уже имеется <code class="highlighter-rouge">pip</code> (вы можете это проверить, запустив команду <code class="highlighter-rouge">pip</code> в терминальном окне). В противном случае, обязательно проведите <a target="_blank" href="https://pip.pypa.io/en/stable/installing/">установку</a> данного пакета, до того как перейти к следующему шагу!</li>
+</ol>
+
+<p>Для пробного запуска вашего первого Flask-приложения:</p>
+
+<ol>
+  <li>Скачайте (клонируйте/clone) ваш репозиторий <strong>username/project1-username</strong> с GitHub (примечание: это НЕ ваш <strong>makeweb50/project1-username</strong> репозиторий).</li>
+  <li>Находясь в окне терминала, перейдите в директорию <code class="highlighter-rouge">project1</code>.</li>
+  <li>Запустите команду <code class="highlighter-rouge">pip3 install -r requirements.txt</code> в вашем терминальном окне, дабы убедиться, что все необходимые Python'овские пакеты (например Flask и SQLAlchemy) были успешно установлены.</li>
+  <li>Создайте переменную среды <code class="highlighter-rouge">FLASK_APP</code>, указав в качестве значения <code class="highlighter-rouge">application.py</code>. На Mac'е или на Linux'е данная команда выглядит следующим образом <code class="highlighter-rouge">export FLASK_APP=application.py</code>. На
+Windows'е команда выглядит немного иначе: <code class="highlighter-rouge">set FLASK_APP=application.py</code>. Возможно, вы дополнительно захотите установить переменную среды <code class="highlighter-rouge">FLASK_DEBUG</code>, со значением <code class="highlighter-rouge">1</code>, которая активирует дебаггер Flask'a и будет автоматически перезагружать ваше веб-приложение, при каждом сохранении вносимого в файл изменения.</li>
+  <li>Задайте переменную среды <code class="highlighter-rouge">DATABASE_URL</code> таким образом, чтобы она указывала на местонахождение/адрес (URI) вашей базы данных, которую вы можете получить со страницы Heroku, раздел Credentials (данные учетной записи).</li>
+  <li>Запустите команду <code class="highlighter-rouge">flask run</code>, дабы запустить ваше Flask-приложение.</li>
+  <li>Если вы перейдете по ссылке (URL), предоставленной <code class="highlighter-rouge">flask'ом</code>, то увидите текст <code class="highlighter-rouge">"Project 1: TODO"</code>!</li>
+</ol>
+
+<h3 id="goodreads-api">Goodreads API</h3>
+
+<p>Goodreads - это популярный сайт, посвященный книжным отзывам. В данном проекте мы воспользуемся их API, чтобы получить доступ к отзывам каждой отдельной книги.</p>
+
+<ol>
+  <li>Перейдите на <a target="_blank" href="https://www.goodreads.com/api">https://www.goodreads.com/api</a> и зарегистрируйте Goodreads аккаунт, конечно, если у вас еще нет данной учетной записи.</li>
+  <li>Перейдите по ссылке
+<a target="_blank" href="https://www.goodreads.com/api/keys">https://www.goodreads.com/api/keys</a> и подайте заявку на получение ключа API. Поля “Application name” (название приложения) и “Company name” (название компании) можете просто заполнить текстом “project1”, и нет необходимости включать ссылку приложения, callback URL или ссылку поддержки/запасную/дополнительную (support URL).</li>
+  <li>Далее вы должны увидеть свой ключ API (В данной проекте, нас интересует только “key” (ключ), не “secret”.)</li>
+  <li>Теперь вы можете применить этот ключ API для создания запросов, направленных на Goodreads API. <a target="_blank" href="https://www.goodreads.com/api/index">Здесь</a> вся необходимая документация. В частности, Python'овский код, подобным тому, что приведен ниже</li>
+</ol>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"https://www.goodreads.com/book/review_counts.json"</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">{</span><span class="s">"key"</span><span class="p">:</span> <span class="s">"KEY"</span><span class="p">,</span> <span class="s">"isbns"</span><span class="p">:</span> <span class="s">"9781632168146"</span><span class="p">})</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>где <code class="highlighter-rouge">KEY</code> - это ваш ключ API, он даст вам доступ к данным об отзыве и рейтинге определенной, имеющей ISBN номер (международный стандартный книжный номер), книги. Проще говоря, вы увидите что-то схожее со следующим словарем:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s">'books'</span><span class="p">:</span> <span class="p">[{</span>
+                <span class="s">'id'</span><span class="p">:</span> <span class="mi">29207858</span><span class="p">,</span>
+                <span class="s">'isbn'</span><span class="p">:</span> <span class="s">'1632168146'</span><span class="p">,</span>
+                <span class="s">'isbn13'</span><span class="p">:</span> <span class="s">'9781632168146'</span><span class="p">,</span>
+                <span class="s">'ratings_count'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s">'reviews_count'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s">'text_reviews_count'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s">'work_ratings_count'</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span>
+                <span class="s">'work_reviews_count'</span><span class="p">:</span> <span class="mi">113</span><span class="p">,</span>
+                <span class="s">'work_text_reviews_count'</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+                <span class="s">'average_rating'</span><span class="p">:</span> <span class="s">'4.04'</span>
+            <span class="p">}]</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Имейте ввиду, что <code class="highlighter-rouge">work_ratings_count</code> (количество_полученных_данной_работой_оценок) - указывает на количество полученных данной книгой рейтингов/оценок, и <code class="highlighter-rouge">average_rating</code> (средний_рейтинг) - это средняя оценка книги, максимальное значение 5.</p>
+
+<h2 id="requirements">Требования</h2>
+
+<p>Хорошо, теперь пришло время перейти к непосредственному созданию вашего веб-приложения! Вот требования:</p>
+
+<ul>
+  <li><strong>Регистрация</strong>: Пользователи должны иметь возможность регистрироваться на вашем сайте, как минимум ваш сайт должен требовать никнейм (username) и пароль (password).</li>
+  <li><strong>Авторизация</strong>: Зарегистрировавшиеся пользователи должны иметь возможность авторизовываться с помощью своих учетных данных (логина и пароля).</li>
+  <li><strong>Деавторизация</strong>: Авторизованные пользователи должны иметь возможность деавторизовываться с сайта.</li>
+  <li><strong>Импортирование</strong>: К данному проекту прилагается файл под названием <code class="highlighter-rouge">books.csv</code>, который представляет из себя таблицу формата CSV, содержащую данные 5000 различных книг.
+  У каждой книги есть номер ISBN, название (title), автор (author) и дата публикации (publication date).
+  В Python'овском файле под названием <code class="highlighter-rouge">import.py</code>, отдельно от вашего веб-приложения, напишите программу, которая будет брать информацию о книгах и заносить ее в базу данных PostgreSQL.
+  Вам сперва нужно будет решить, какие таблицы(цу) вы будете создавать, какие столбики должны быть у данных таблиц и как они должны взаимодействовать друг с другом. Запустите вашу программу командой <code class="highlighter-rouge">python3 import.py</code>, таким образом вы импортируете данные о книгах в вашу базу. Отправляя проект на проверку, не забудьте включить данную программу в свой код.</li>
+  <li><strong>Поиск</strong>: Как только пользователь авторизуется, он должен быть перенаправлен на страницу, где он сможет осуществлять поиск интересующей его книги.
+  У пользователей должна быть возможность вводить книжный ISBN номер, название книги или имя автора книги.
+     После произведения сайтом операции поиска, он должен отобразить список возможных
+  результатов или отобразить сообщение, при отсутствии каких-либо результатов.
+  Если пользователь введет только часть названия книги, неполный номер ISBN или неполное имя автора, ваша страница должна и под них выдать результаты!</li>
+  <li><strong>Страница Описания Книги</strong>: Когда пользователи нажмут на книгу, предоставленной страницей поиска, они должный быть перенаправлены на страницу книги, с подробной детализацией рассматриваемой работы: ее название, автор, дата публикации, номер ISBN и какие-либо отзывы, оставленные пользователями на вашем сайте.</li>
+  <li><strong>Оставление Отзыва Review Submission</strong>: Находясь на странице с описанием книги, у пользователя должна быть возможность оставлять отзывы, в которые будет входить оценка по шкале от 1 до 5 баллов, а также текст, где пользователь сможет записывать свое мнение о книге.
+  Пользователю нельзя публиковать несколько отзывов на одну и ту жу книгу.</li>
+  <li><strong>Отзывы Goodreads</strong>: На странице книги также должны быть показаны (если есть) средняя оценка и количество оценок, полученных книгой от ресурса Goodreads.</li>
+  <li><strong>Доступ к API</strong>: Если пользователь пошлет GET-запрос на ваш веб-страничный маршрут <code class="highlighter-rouge">/api/&lt;isbn&gt;</code>, где <code class="highlighter-rouge">&lt;isbn&gt;</code> является номером ISBN, тогда ваш веб-сайт должен вернуть JSON-объект, содержащий название книги (title), автора (author), дату публикации (year), номер ISBN, количество отзывов (review count) и среднюю оценку (average score). В результате должен получиться JSON-объект следующего формата:</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+    <span class="s">"title"</span><span class="p">:</span> <span class="s">"Memory"</span><span class="p">,</span>
+    <span class="s">"author"</span><span class="p">:</span> <span class="s">"Doug Lloyd"</span><span class="p">,</span>
+    <span class="s">"year"</span><span class="p">:</span> <span class="mi">2015</span><span class="p">,</span>
+    <span class="s">"isbn"</span><span class="p">:</span> <span class="s">"1632168146"</span><span class="p">,</span>
+    <span class="s">"review_count"</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>
+    <span class="s">"average_score"</span><span class="p">:</span> <span class="mf">5.0</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Если запрашиваемого номера ISBN нет в вашей базе данных, то ваш сайт должен вернуть ошибку 404.</p>
+<ul>
+  <li>Вы должны использовать только "чистые" (raw) SQL-команды (с помощью метода SQLAlchemy, имеющий название <code class="highlighter-rouge">execute</code>), в составлении запросов к базе базе данных. В этом проекте вам нельзя прибегать к SQLAlchemy ORM (даже если вам известны способы его применения).</li>
+  <li>In <code class="highlighter-rouge">README.md</code>, содержит короткое описание вашего проекта, что содержится в каждом файле и (по желанию) какая-либо еще дополнительная информация, которую нам стоило бы знать при проверке вашего проекта.</li>
+  <li>Если вы добавили какие-либо еще дополнительные Python'овские пакеты, без которых ваше приложение не может быть запущено, обязательно добавьте их названия в файл <code class="highlighter-rouge">requirements.txt</code>!</li>
+</ul>
+
+<p>Помимо этих требований, вы можете добавить в проект свои идеи. Дизайн, вид и общее ощущение от использования сайта могут быть свободно дополнены вашим собственным видением!</p>
+
+<h2 id="hints">Подсказки</h2>
+
+<ul>
+  <li>Как минимум, вы скорее всего захотите добавить хотя бы одну таблицу, для отслеживания  пользователей, еще одну для книг и последнюю для отзывов. Но вам необязательно ограничивать себя только этими тремя таблицами, если вы считаете, что еще несколько не помешали бы!</li>
+  <li>Говоря об авторизации, напомним вам, что вы можете хранить информацию внутри <code class="highlighter-rouge">session</code> (сессии), которая может хранить разные значения для разных пользователей.
+В частности, если у каждого пользователя есть <code class="highlighter-rouge">id</code>, тогда вы можете сохранить этот <code class="highlighter-rouge">id</code> в
+session (т.е. в <code class="highlighter-rouge">session["user_id"]</code>), для понимания того, который именно пользователь на данных момент находится в системе (авторизован).</li>
+</ul>
+
+<h2 id="faqs">Вопросы</h2>
+
+<h3 id="for-the-api-do-the-json-keys-need-to-be-in-order">Касаемо API, нужно ли располагать ключи JSON в определенном порядке (сортировано)?</h3>
+
+<p>Можете располагать в любом порядке!</p>
+
+<h3 id="attributeerror-nonetype-object-has-no-attribute-_instantiate_plugins"><code class="highlighter-rouge">AttributeError: 'NoneType' object has no attribute '_instantiate_plugins'</code></h3>
+
+<p>Удостоверьтесь, что перед тем как запустить <code class="highlighter-rouge">flask run</code>, вы установили переменную среды <code class="highlighter-rouge">DATABASE_URL</code>!</p>
+
+<h2 id="how-to-submit">Как отправить</h2>
+
+<ol>
+  <li>Перейдите на страницу GitHub'а, где находится ваш репозиторий <strong>username/project1-username</strong> (примечание: не перепутайте с репозиторием <strong>makeweb50/project1-username</strong>).</li>
+  <li>На правой стороне экрана кликните по кнопке "Pull request" ("Принятие изменений").</li>
+  <li>Обязательно удостоверьтесь, что “base fork” (основной fork) - это <code class="highlighter-rouge">makeweb50/project1-username</code> и “head fork” (головной fork) - это <code class="highlighter-rouge">username/project1-username</code>.</li>
+  <li>Кликните по “Create pull request”.</li>
+  <li>На следующей странице вам опять придется нажать на кнопку “Create pull request”.</li>
+</ol>
+
+<p>Поздравляем! Вы завершили Проект 1.</p>
+
+
+            </div>
+        </div>
+
+    </body>
+
+</html>
